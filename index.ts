@@ -1,4 +1,23 @@
 import express, { Express, Request, Response } from "express";
+import mongoose from "mongoose";
+
+
+
+
+
+mongoose.connect("mongodb+srv://vahermihkel:**************@materials.z5dhxc9.mongodb.net/test");
+const database = mongoose.connection;
+
+database.on('error', (error) => {
+  console.log(error)
+})
+
+database.once('connected', () => {
+  console.log('Database Connected');
+})
+
+
+
 
 const app: Express = express();
 
